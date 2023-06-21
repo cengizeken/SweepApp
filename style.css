@@ -1,5 +1,6 @@
+/*index.html de yer alan tüm elemanlar için*/
 *{
-    margin: 0px;
+    margin: 0px;/*varsayılan olarak gelen margin ve paddingleri sıfırla*/
     padding: 0px;
 }
 /*container area*/
@@ -21,10 +22,12 @@
 }
 .navbar{
     /* background-color: antiquewhite; */
-    height: 80px;
+    height: 100px;
     display: flex;/*navbar class ı içerisindeki tüm tagleri(image nav ve menu-icon div) yan yana sıralar*/
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 10;
 }
 
 .bi{
@@ -101,8 +104,12 @@ nav ul li a{
     overflow: auto;
     align-items: center;
 }
+/*scroll bar nesnesine eriş ve */
+.row::-webkit-scrollbar{
+    display: none;/*ortadan kaldır*/
+}
 .col{
-    flex-basis: 40%;
+    flex-basis: 45%;
 }
 h1{
     /* color:white; */
@@ -126,9 +133,17 @@ button{
     outline: none;
     margin-top: 30px;
 }
+button:hover{
+   background-color: black;
+   color: white;
+   transition: 0.3s;
+   cursor: pointer; 
+   font-size: 17px;
+}
 .col-card{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* background-color: aqua; */
 }
 .card{
     /* width: 45%; */
@@ -136,7 +151,9 @@ button{
     padding: 15px;
     box-sizing: border-box;
     cursor: pointer;
-    margin:15px;
+    margin-top:20px;
+    margin-right: 15px
+    ;
     background-image: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)), url(./images//person1.jpeg);
     /* background-image: url(./images//person1.jpeg);  */
     /* background-size:200px; */
@@ -148,6 +165,7 @@ button{
 }
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 0 10px whitesmoke;
 }
 /*responsive settings*/
 @media  (max-width:768px){
@@ -159,5 +177,21 @@ button{
     }
     .row{
         display: block;
+        /* flex-direction: column; */
+    }
+    .card{
+        height: 200px;
+        transition: .3s;
+        margin-left: 0;
+    }
+    h1{
+        font-size: 50px;
+    }
+    .col p{
+        font-size: 13px;
+    }
+    .button{
+        width: 100px;
+        margin-top: 10px;
     }
 }
